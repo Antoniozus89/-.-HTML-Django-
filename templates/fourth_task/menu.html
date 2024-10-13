@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Меню{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href='{% static "style.css" %}'>
+</head>
+<body>
+<header>
+    <h1>Магазин ToHa.ru</h1>
+    <nav>
+        <ul>
+            {% block menu %}
+            <li><a href="{% url 'main_page' %}">Главная</a></li>
+            <li><a href="{% url 'price_page' %}">Магазин</a></li>
+            <li><a href="{% url 'cart_page' %}">Корзина</a></li>
+            {% endblock %}
+        </ul>
+    </nav>
+</header>
+
+<div id="content">
+    {% block content %}{% endblock %}
+</div>
+
+<footer>
+    <p>© 2024 Мой магазин</p>
+</footer>
+</body>
+</html>
